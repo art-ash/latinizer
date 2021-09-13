@@ -18,3 +18,11 @@ textarea {
 pre {
   white-space: pre-wrap;
 }
+
+p {
+  font-size: 13px;
+}
+
+a {
+  color:beige;
+}

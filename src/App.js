@@ -22,7 +22,13 @@ export const App = () => {
 
   return (
     <div>
-    <h2>Cyrillic to latin script converter</h2>
+      <h2>Cyrillic to latin script converter</h2>
+      <p>
+        "Englify" option will convert cyrillic text into 
+        &nbsp;
+        <a target="_blank"
+          href="https://en.wikipedia.org/wiki/BGN/PCGN_romanization">BGN/PCGN</a>
+      </p>
       <form>
         <p>
           <label htmlFor="inputType">Input:</label>
