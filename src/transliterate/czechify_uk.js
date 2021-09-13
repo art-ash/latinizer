@@ -287,7 +287,7 @@ export default text => {
       continue;
     }
     if (text[i] === "ь") {
-      result += "'";
+      result += "’";
       continue;
     }
     if (text[i] === "’" || text[i] === "'") {

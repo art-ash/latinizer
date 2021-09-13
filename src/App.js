@@ -31,7 +31,6 @@ export const App = () => {
             id="inputType"
             value={inputType}
             onChange={handleInputTypeChange}
-            disabled
           >
             <option value="uk">Ukrainian</option>
             <option value="ru">Russian</option>
@@ -44,10 +43,16 @@ export const App = () => {
             id="outputType"
             value={outputType}
             onChange={handleOutputTypeChange}
+            disabled={inputType === 'ru'}
           >
             <option value="en">Englify</option>
-            <option value="cz">Czechify</option>
-            <option value="pl" disabled>Polonify</option>
+            {
+              inputType === 'uk'
+              && <>
+                <option value="cz">Czechify</option>
+                <option value="pl" disabled>Polonify</option>
+              </>
+            }
           </select>
         </p>
         <textarea

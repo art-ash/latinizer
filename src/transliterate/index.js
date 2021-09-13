@@ -1,14 +1,18 @@
-// import polonify from './polonify';
-import czechify from './czechify';
-import englify from './englify';
+import czechifyUk from './czechify_uk';
+import englifyUk from './englify_uk';
+import englifyRu from './englify_ru';
 
 export default (text, inputType, outputType) => {
-  switch (outputType) {
-    // case 'pl':
-    //   return polonify(text);
-    case 'cz':
-      return czechify(text);
-    case 'en':
-      return englify(text);
+  if (inputType === 'uk') {
+    switch (outputType) {
+      case 'cz':
+        return czechifyUk(text);
+      case 'en':
+        return englifyUk(text);
+    }    
+  }
+
+  if (inputType === 'ru') {
+    return englifyRu(text);
   }
 }
