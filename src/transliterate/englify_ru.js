@@ -253,7 +253,7 @@ export default text => {
       continue;
     }
     if (text[i] === "ъ") {
-      result += "";
+      result += "’’";
       continue;
     }
     if (text[i] === "Ы") {

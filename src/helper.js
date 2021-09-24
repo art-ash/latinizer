@@ -25,3 +25,21 @@ export const isConsonant = char => (
     isCharsEqual(char, "ш") ||
     isCharsEqual(char, "щ")
   );
+
+  export const isUkInput = text => {
+    const textInLowercase = text.toLowerCase();
+
+    return textInLowercase.indexOf('ї') !== -1 
+      || textInLowercase.indexOf('ґ') !== -1
+      || textInLowercase.indexOf('є') !== -1
+      || textInLowercase.indexOf('і') !== -1;
+  }
+
+  export const isRuInput = text => {    
+    const textInLowercase = text.toLowerCase();
+
+    return textInLowercase.indexOf('ё') !== -1 
+      || textInLowercase.indexOf('ы') !== -1
+      || textInLowercase.indexOf('ъ') !== -1
+      || textInLowercase.indexOf('э') !== -1;
+  }

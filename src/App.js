@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import transliterate from "./transliterate";
+import { isUkInput, isRuInput } from "./helper";
 import "./style.css";
 
 export const App = () => {
@@ -15,6 +16,11 @@ export const App = () => {
       outputType
     ));
   }, [textToTransliterate, inputType, outputType]);
+
+  useEffect(() => {
+    isRuInput(textToTransliterate) && setInputType('ru');
+    isUkInput(textToTransliterate) && setInputType('uk');
+  }, [textToTransliterate]);
 
   const handleTextChange = event => setTextToTransliterate(event.target.value);
   const handleOutputTypeChange = event => setOutputType(event.target.value);
