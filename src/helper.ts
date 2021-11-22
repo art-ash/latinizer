@@ -1,9 +1,7 @@
-export const isCharsEqual = (nextChar, char) => {
-  if (!nextChar || typeof nextChar != 'string') return null;
- return char.toLowerCase() == nextChar.toLowerCase();
-}
+export const isCharsEqual = (nextChar: string, char: string): boolean => 
+  char.toLowerCase() == nextChar.toLowerCase();
 
-export const isConsonant = char => (
+export const isConsonant = (char: string): boolean => (
     isCharsEqual(char, "б") ||
     isCharsEqual(char, "в") ||
     isCharsEqual(char, "г") ||
@@ -26,7 +24,7 @@ export const isConsonant = char => (
     isCharsEqual(char, "щ")
   );
 
-  export const isUkInput = text => {
+  export const isUkInput = (text: string): boolean => {
     const textInLowercase = text.toLowerCase();
 
     return textInLowercase.indexOf('ї') !== -1 
@@ -35,7 +33,7 @@ export const isConsonant = char => (
       || textInLowercase.indexOf('і') !== -1;
   }
 
-  export const isRuInput = text => {    
+  export const isRuInput = (text: string): boolean => {    
     const textInLowercase = text.toLowerCase();
 
     return textInLowercase.indexOf('ё') !== -1 

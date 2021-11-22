@@ -2,7 +2,7 @@ import czechifyUk from './czechify_uk';
 import englifyUk from './englify_uk';
 import englifyRu from './englify_ru';
 
-export default (text, inputType, outputType) => {
+export default (text: string, inputType: string, outputType: string): string => {
   if (inputType === 'uk') {
     switch (outputType) {
       case 'cz':
@@ -15,4 +15,6 @@ export default (text, inputType, outputType) => {
   if (inputType === 'ru') {
     return englifyRu(text);
   }
+
+  return '';
 }

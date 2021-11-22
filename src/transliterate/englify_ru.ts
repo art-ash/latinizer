@@ -1,15 +1,15 @@
-import { isCharsEqual, isConsonant } from "../helper";
+import { isConsonant } from "../helper";
 
-export default text => {
+export default (text: string): string => {
   let result = "";
 
   for (let i = 0; i < text.length; i++) {
     if (text[i] === "Ч") {
-      result += "Č";
+      result += "Ch";
       continue;
     }
     if (text[i] === "ч") {
-      result += "č";
+      result += "ch";
       continue;
     }
     if (text[i] === "В") {
@@ -21,27 +21,27 @@ export default text => {
       continue;
     }
     if (text[i] === "Ш") {
-      result += "Š";
+      result += "Sh";
       continue;
     }
     if (text[i] === "ш") {
-      result += "š";
+      result += "sh";
       continue;
     }
     if (text[i] === "Щ") {
-      result += "Šč";
+      result += "Shch";
       continue;
     }
     if (text[i] === "щ") {
-      result += "šč";
+      result += "shch";
       continue;
     }
     if (text[i] === "Ж") {
-      result += "Ž";
+      result += "Zh";
       continue;
     }
     if (text[i] === "ж") {
-      result += "ž";
+      result += "zh";
       continue;
     }
     if (text[i] === "А") {
@@ -61,19 +61,19 @@ export default text => {
       continue;
     }
     if (text[i] === "Ц") {
-      result += "C";
+      result += "Ts";
       continue;
     }
     if (text[i] === "ц") {
-      result += "c";
+      result += "ts";
       continue;
     }
     if (text[i] === "Х") {
-      result += "Ch";
+      result += "Kh";
       continue;
     }
     if (text[i] === "х") {
-      result += "ch";
+      result += "kh";
       continue;
     }
     if (text[i] === "Д") {
@@ -84,32 +84,24 @@ export default text => {
       result += "d";
       continue;
     }
-    if (text[i] === "Є") {
-      result += "Je";
-      continue;
-    }
-    if (text[i] === "є" && isConsonant(text[i - 1])) {
-      result += "ie";
-      continue;
-    }
-    if (text[i] === "є") {
-      result += "je";
-      continue;
-    }
     if (text[i] === "Е") {
-      result += "E";
+      result += "Ye";
       continue;
     }
-    if (text[i] === "е") {
+    if (text[i] === "е" && isConsonant(text[i - 1])) {
       result += "e";
       continue;
     }
-    if (text[i] === "Ї") {
-      result += "Ji";
+    if (text[i] === "е") {
+      result += "ye";
       continue;
     }
-    if (text[i] === "ї") {
-      result += "ji";
+    if (text[i] === "Э") {
+      result += "E";
+      continue;
+    }
+    if (text[i] === "э") {
+      result += "e";
       continue;
     }
     if (text[i] === "Ф") {
@@ -120,46 +112,20 @@ export default text => {
       result += "f";
       continue;
     }
-    if (text[i] === "Ґ") {
+    if (text[i] === "Г") {
       result += "G";
       continue;
     }
-    if (text[i] === "ґ") {
+    if (text[i] === "г") {
       result += "g";
       continue;
     }
-    if (text[i] === "Г") {
-      result += "H";
-      continue;
-    }
-    if (text[i] === "г") {
-      result += "h";
-      continue;
-    }
-    if (text[i] === "І") {
-      result += "I";
-      continue;
-    }
-    if (text[i] === "і" && isCharsEqual(text[i + 1], "й")) {
-      result += "í";
-      continue;
-    }
-    if (text[i] === "і") {
-      result += "i";
-      continue;
-    }
     if (text[i] === "Й") {
-      result += "J";
-      continue;
-    }
-    if (
-      text[i] === "й" &&
-      (isCharsEqual(text[i - 1], "и") || isCharsEqual(text[i - 1], "і"))
-    ) {
+      result += "Y";
       continue;
     }
     if (text[i] === "й") {
-      result += "j";
+      result += "y";
       continue;
     }
     if (text[i] === "К") {
@@ -243,15 +209,11 @@ export default text => {
       continue;
     }
     if (text[i] === "И") {
-      result += "Y";
-      continue;
-    }
-    if (text[i] === "и" && isCharsEqual(text[i + 1], "й")) {
-      result += "ý";
+      result += "I";
       continue;
     }
     if (text[i] === "и") {
-      result += "y";
+      result += "i";
       continue;
     }
     if (text[i] === "З") {
@@ -263,35 +225,55 @@ export default text => {
       continue;
     }
     if (text[i] === "Ю") {
-      result += "Ju";
+      result += "Yu";
       continue;
     }
     if (text[i] === "ю" && isConsonant(text[i - 1])) {
-      result += "iu";
-      continue;
+        result += "iu";
+        continue;
     }
     if (text[i] === "ю") {
-      result += "ju";
+      result += "yu";
       continue;
     }
     if (text[i] === "Я") {
-      result += "Ja";
+      result += "Ya";
       continue;
     }
     if (text[i] === "я" && isConsonant(text[i - 1])) {
-      result += "ia";
-      continue;
+        result += "ia";
+        continue;
     }
     if (text[i] === "я") {
-      result += "ja";
+      result += "ya";
       continue;
     }
     if (text[i] === "ь") {
       result += "’";
       continue;
     }
-    if (text[i] === "’" || text[i] === "'") {
-      result += "";
+    if (text[i] === "ъ") {
+      result += "’’";
+      continue;
+    }
+    if (text[i] === "Ы") {
+      result += "Y";
+      continue;
+    }
+    if (text[i] === "ы") {
+      result += "y";
+      continue;
+    }
+    if (text[i] === "Ё") {
+      result += "Yё";
+      continue;
+    }
+    if (text[i] === "ё" && isConsonant(text[i - 1])) {
+      result += "ё";
+      continue;
+    }
+    if (text[i] === "ё") {
+      result += "yё";
       continue;
     }
 
