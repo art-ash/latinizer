@@ -1,4 +1,4 @@
-import { isConsonant } from "../helper";
+import { isConsonant } from "../helpers/transliteration";
 
 export default (text: string): string => {
   let result = "";
