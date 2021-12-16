@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import transliterate from '../transliterate';
+import { transliterate} from '../helpers';
 import { isUkInput, isRuInput } from '../helpers/transliteration';
 import {
     changeInputType,
@@ -35,7 +35,7 @@ class _Controls extends React.Component<ControlsProps> {
         const isUkInputType = isUkInput(inputText);
         const isInputTypeChanged = prevProps.inputType !== inputType;
         const isOutputTypeChanged = prevProps.outputType !== outputType;
-
+        
         if (isInputTextChanged && isRuInputType) {
             this.props.changeInputType('ru');
         }

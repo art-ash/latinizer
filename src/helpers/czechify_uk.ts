@@ -1,15 +1,15 @@
-import { isConsonant } from '../helpers/transliteration';
+import { isCharsEqual, isConsonant } from './transliteration';
 
-const englifyRy = (text: string): string => {
+const czechifyUk = (text: string): string => {
     let result = '';
 
     for (let i = 0; i < text.length; i++) {
         if (text[i] === 'Ч') {
-            result += 'Ch';
+            result += 'Č';
             continue;
         }
         if (text[i] === 'ч') {
-            result += 'ch';
+            result += 'č';
             continue;
         }
         if (text[i] === 'В') {
@@ -21,27 +21,27 @@ const englifyRy = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ш') {
-            result += 'Sh';
+            result += 'Š';
             continue;
         }
         if (text[i] === 'ш') {
-            result += 'sh';
+            result += 'š';
             continue;
         }
         if (text[i] === 'Щ') {
-            result += 'Shch';
+            result += 'Šč';
             continue;
         }
         if (text[i] === 'щ') {
-            result += 'shch';
+            result += 'šč';
             continue;
         }
         if (text[i] === 'Ж') {
-            result += 'Zh';
+            result += 'Ž';
             continue;
         }
         if (text[i] === 'ж') {
-            result += 'zh';
+            result += 'ž';
             continue;
         }
         if (text[i] === 'А') {
@@ -61,19 +61,19 @@ const englifyRy = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ц') {
-            result += 'Ts';
+            result += 'C';
             continue;
         }
         if (text[i] === 'ц') {
-            result += 'ts';
+            result += 'c';
             continue;
         }
         if (text[i] === 'Х') {
-            result += 'Kh';
+            result += 'Ch';
             continue;
         }
         if (text[i] === 'х') {
-            result += 'kh';
+            result += 'ch';
             continue;
         }
         if (text[i] === 'Д') {
@@ -84,24 +84,32 @@ const englifyRy = (text: string): string => {
             result += 'd';
             continue;
         }
+        if (text[i] === 'Є') {
+            result += 'Je';
+            continue;
+        }
+        if (text[i] === 'є' && isConsonant(text[i - 1])) {
+            result += 'ie';
+            continue;
+        }
+        if (text[i] === 'є') {
+            result += 'je';
+            continue;
+        }
         if (text[i] === 'Е') {
-            result += 'Ye';
-            continue;
-        }
-        if (text[i] === 'е' && isConsonant(text[i - 1])) {
-            result += 'e';
-            continue;
-        }
-        if (text[i] === 'е') {
-            result += 'ye';
-            continue;
-        }
-        if (text[i] === 'Э') {
             result += 'E';
             continue;
         }
-        if (text[i] === 'э') {
+        if (text[i] === 'е') {
             result += 'e';
+            continue;
+        }
+        if (text[i] === 'Ї') {
+            result += 'Ji';
+            continue;
+        }
+        if (text[i] === 'ї') {
+            result += 'ji';
             continue;
         }
         if (text[i] === 'Ф') {
@@ -112,20 +120,46 @@ const englifyRy = (text: string): string => {
             result += 'f';
             continue;
         }
-        if (text[i] === 'Г') {
+        if (text[i] === 'Ґ') {
             result += 'G';
             continue;
         }
-        if (text[i] === 'г') {
+        if (text[i] === 'ґ') {
             result += 'g';
             continue;
         }
+        if (text[i] === 'Г') {
+            result += 'H';
+            continue;
+        }
+        if (text[i] === 'г') {
+            result += 'h';
+            continue;
+        }
+        if (text[i] === 'І') {
+            result += 'I';
+            continue;
+        }
+        if (text[i] === 'і' && isCharsEqual(text[i + 1], 'й')) {
+            result += 'í';
+            continue;
+        }
+        if (text[i] === 'і') {
+            result += 'i';
+            continue;
+        }
         if (text[i] === 'Й') {
-            result += 'Y';
+            result += 'J';
+            continue;
+        }
+        if (
+            text[i] === 'й' &&
+            (isCharsEqual(text[i - 1], 'и') || isCharsEqual(text[i - 1], 'і'))
+        ) {
             continue;
         }
         if (text[i] === 'й') {
-            result += 'y';
+            result += 'j';
             continue;
         }
         if (text[i] === 'К') {
@@ -209,11 +243,15 @@ const englifyRy = (text: string): string => {
             continue;
         }
         if (text[i] === 'И') {
-            result += 'I';
+            result += 'Y';
+            continue;
+        }
+        if (text[i] === 'и' && isCharsEqual(text[i + 1], 'й')) {
+            result += 'ý';
             continue;
         }
         if (text[i] === 'и') {
-            result += 'i';
+            result += 'y';
             continue;
         }
         if (text[i] === 'З') {
@@ -225,7 +263,7 @@ const englifyRy = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ю') {
-            result += 'Yu';
+            result += 'Ju';
             continue;
         }
         if (text[i] === 'ю' && isConsonant(text[i - 1])) {
@@ -233,11 +271,11 @@ const englifyRy = (text: string): string => {
             continue;
         }
         if (text[i] === 'ю') {
-            result += 'yu';
+            result += 'ju';
             continue;
         }
         if (text[i] === 'Я') {
-            result += 'Ya';
+            result += 'Ja';
             continue;
         }
         if (text[i] === 'я' && isConsonant(text[i - 1])) {
@@ -245,35 +283,15 @@ const englifyRy = (text: string): string => {
             continue;
         }
         if (text[i] === 'я') {
-            result += 'ya';
+            result += 'ja';
             continue;
         }
         if (text[i] === 'ь') {
             result += '’';
             continue;
         }
-        if (text[i] === 'ъ') {
-            result += '’’';
-            continue;
-        }
-        if (text[i] === 'Ы') {
-            result += 'Y';
-            continue;
-        }
-        if (text[i] === 'ы') {
-            result += 'y';
-            continue;
-        }
-        if (text[i] === 'Ё') {
-            result += 'Yё';
-            continue;
-        }
-        if (text[i] === 'ё' && isConsonant(text[i - 1])) {
-            result += 'ё';
-            continue;
-        }
-        if (text[i] === 'ё') {
-            result += 'yё';
+        if (text[i] === '’' || text[i] === "'") {
+            result += '';
             continue;
         }
 
@@ -283,4 +301,4 @@ const englifyRy = (text: string): string => {
     return result;
 };
 
-export default englifyRy;
+export default czechifyUk;

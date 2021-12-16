@@ -2,7 +2,7 @@ import czechifyUk from './czechify_uk';
 import englifyUk from './englify_uk';
 import englifyRu from './englify_ru';
 
-const transliterate = (
+export const transliterate = (
     text: string,
     inputType: string,
     outputType: string
@@ -22,5 +22,3 @@ const transliterate = (
 
     return '';
 };
-
-export default transliterate;

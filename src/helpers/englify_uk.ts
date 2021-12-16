@@ -1,15 +1,15 @@
-import { isCharsEqual, isConsonant } from '../helpers/transliteration';
+import { isConsonant } from './transliteration';
 
-const czechifyUk = (text: string): string => {
+const englifyUk = (text: string): string => {
     let result = '';
 
     for (let i = 0; i < text.length; i++) {
         if (text[i] === 'Ч') {
-            result += 'Č';
+            result += 'Ch';
             continue;
         }
         if (text[i] === 'ч') {
-            result += 'č';
+            result += 'ch';
             continue;
         }
         if (text[i] === 'В') {
@@ -21,27 +21,27 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ш') {
-            result += 'Š';
+            result += 'Sh';
             continue;
         }
         if (text[i] === 'ш') {
-            result += 'š';
+            result += 'sh';
             continue;
         }
         if (text[i] === 'Щ') {
-            result += 'Šč';
+            result += 'Shch';
             continue;
         }
         if (text[i] === 'щ') {
-            result += 'šč';
+            result += 'shch';
             continue;
         }
         if (text[i] === 'Ж') {
-            result += 'Ž';
+            result += 'Zh';
             continue;
         }
         if (text[i] === 'ж') {
-            result += 'ž';
+            result += 'zh';
             continue;
         }
         if (text[i] === 'А') {
@@ -61,19 +61,19 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ц') {
-            result += 'C';
+            result += 'Ts';
             continue;
         }
         if (text[i] === 'ц') {
-            result += 'c';
+            result += 'ts';
             continue;
         }
         if (text[i] === 'Х') {
-            result += 'Ch';
+            result += 'Kh';
             continue;
         }
         if (text[i] === 'х') {
-            result += 'ch';
+            result += 'kh';
             continue;
         }
         if (text[i] === 'Д') {
@@ -85,7 +85,7 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'Є') {
-            result += 'Je';
+            result += 'Ye';
             continue;
         }
         if (text[i] === 'є' && isConsonant(text[i - 1])) {
@@ -93,7 +93,7 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'є') {
-            result += 'je';
+            result += 'ye';
             continue;
         }
         if (text[i] === 'Е') {
@@ -105,11 +105,11 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ї') {
-            result += 'Ji';
+            result += 'Yi';
             continue;
         }
         if (text[i] === 'ї') {
-            result += 'ji';
+            result += 'yi';
             continue;
         }
         if (text[i] === 'Ф') {
@@ -140,26 +140,16 @@ const czechifyUk = (text: string): string => {
             result += 'I';
             continue;
         }
-        if (text[i] === 'і' && isCharsEqual(text[i + 1], 'й')) {
-            result += 'í';
-            continue;
-        }
         if (text[i] === 'і') {
             result += 'i';
             continue;
         }
         if (text[i] === 'Й') {
-            result += 'J';
-            continue;
-        }
-        if (
-            text[i] === 'й' &&
-            (isCharsEqual(text[i - 1], 'и') || isCharsEqual(text[i - 1], 'і'))
-        ) {
+            result += 'Y';
             continue;
         }
         if (text[i] === 'й') {
-            result += 'j';
+            result += 'y';
             continue;
         }
         if (text[i] === 'К') {
@@ -246,10 +236,6 @@ const czechifyUk = (text: string): string => {
             result += 'Y';
             continue;
         }
-        if (text[i] === 'и' && isCharsEqual(text[i + 1], 'й')) {
-            result += 'ý';
-            continue;
-        }
         if (text[i] === 'и') {
             result += 'y';
             continue;
@@ -263,7 +249,7 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'Ю') {
-            result += 'Ju';
+            result += 'Yu';
             continue;
         }
         if (text[i] === 'ю' && isConsonant(text[i - 1])) {
@@ -271,11 +257,11 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'ю') {
-            result += 'ju';
+            result += 'yu';
             continue;
         }
         if (text[i] === 'Я') {
-            result += 'Ja';
+            result += 'Ya';
             continue;
         }
         if (text[i] === 'я' && isConsonant(text[i - 1])) {
@@ -283,11 +269,11 @@ const czechifyUk = (text: string): string => {
             continue;
         }
         if (text[i] === 'я') {
-            result += 'ja';
+            result += 'ya';
             continue;
         }
         if (text[i] === 'ь') {
-            result += '’';
+            result += "'";
             continue;
         }
         if (text[i] === '’' || text[i] === "'") {
@@ -301,4 +287,4 @@ const czechifyUk = (text: string): string => {
     return result;
 };
 
-export default czechifyUk;
+export default englifyUk;
