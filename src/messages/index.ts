@@ -1,4 +1,4 @@
-export default {
+const messages = {
     en: {
         appLanguageLbl: 'Language',
         appLanguageOptEn: 'English',
@@ -37,7 +37,8 @@ export default {
         appLanguageOptUk: 'Украинский',
         appLanguageOptRu: 'Русский',
         appTitle: 'Конвертор Кириллицы в Латиницу',
-        bgnPcgnHelpText: 'Опция "Англифицировать" сконвертирует кириллицу в стандарт',
+        bgnPcgnHelpText:
+            'Опция "Англифицировать" сконвертирует кириллицу в стандарт',
         inputLanguageLbl: 'Входящий Язык',
         inputLanguageOptUk: 'Украинский',
         inputLanguageOptRu: 'Русский',
@@ -48,3 +49,5 @@ export default {
         inputLanguagePlaceholder: 'Текст кириллицей...',
     },
 };
+
+export default messages;
