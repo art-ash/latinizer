@@ -37,28 +37,36 @@ class _App extends React.Component<AppProps> {
                 messages={messages}
                 locale={appLanguage}
                 defaultLocale='en'>
-                <header>
-                    <label htmlFor='appLanguage'>
-                        <FormattedMessage id='appLanguageLbl' />
-                        :&nbsp;
-                    </label>
-                    <select
-                        id='appLanguage'
-                        value={appLanguage}
-                        onChange={this.handleAppLanguageChange}>
-                        <FormattedMessage id='appLanguageOptEn'>
-                            {(message) => <option value='en'>{message}</option>}
-                        </FormattedMessage>
-                        <FormattedMessage id='appLanguageOptUk'>
-                            {(message) => <option value='uk'>{message}</option>}
-                        </FormattedMessage>
-                        <FormattedMessage id='appLanguageOptRu'>
-                            {(message) => <option value='ru'>{message}</option>}
-                        </FormattedMessage>
-                    </select>
-                    <h2>
+                <header className='mb-4'>
+                    <div className='mb-3'>
+                        <label htmlFor='appLanguage'>
+                            <FormattedMessage id='appLanguageLbl' />
+                            :&nbsp;
+                        </label>
+                        <select
+                            id='appLanguage'
+                            value={appLanguage}
+                            onChange={this.handleAppLanguageChange}>
+                            <FormattedMessage id='appLanguageOptEn'>
+                                {(message) => (
+                                    <option value='en'>{message}</option>
+                                )}
+                            </FormattedMessage>
+                            <FormattedMessage id='appLanguageOptUk'>
+                                {(message) => (
+                                    <option value='uk'>{message}</option>
+                                )}
+                            </FormattedMessage>
+                            <FormattedMessage id='appLanguageOptRu'>
+                                {(message) => (
+                                    <option value='ru'>{message}</option>
+                                )}
+                            </FormattedMessage>
+                        </select>
+                    </div>
+                    <h1 className='h3'>
                         <FormattedMessage id='appTitle' />
-                    </h2>
+                    </h1>
                     <p>
                         <FormattedMessage id='bgnPcgnHelpText' /> &nbsp;
                         <a

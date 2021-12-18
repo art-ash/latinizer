@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { transliterate} from '../helpers';
+import { transliterate } from '../helpers';
 import { isUkInput, isRuInput } from '../helpers/transliteration';
 import {
     changeInputType,
@@ -35,7 +35,7 @@ class _Controls extends React.Component<ControlsProps> {
         const isUkInputType = isUkInput(inputText);
         const isInputTypeChanged = prevProps.inputType !== inputType;
         const isOutputTypeChanged = prevProps.outputType !== outputType;
-        
+
         if (isInputTextChanged && isRuInputType) {
             this.props.changeInputType('ru');
         }
@@ -70,12 +70,11 @@ class _Controls extends React.Component<ControlsProps> {
         const { inputType, outputType, inputText } = this.props;
 
         return (
-            <form>
-                <p>
-                    <label htmlFor='inputType'>
+            <form className='mb-4'>
+                <p className='mb-2'>
+                    <label htmlFor='inputType' className='me-2'>
                         <FormattedMessage id='inputLanguageLbl' />:
                     </label>
-                    &nbsp;
                     <select
                         id='inputType'
                         value={inputType}
@@ -88,11 +87,10 @@ class _Controls extends React.Component<ControlsProps> {
                         </FormattedMessage>
                     </select>
                 </p>
-                <p>
-                    <label htmlFor='outputType'>
+                <p className='mb-4'>
+                    <label htmlFor='outputType' className='me-2'>
                         <FormattedMessage id='outputLanguageLbl' />:{' '}
                     </label>
-                    &nbsp;
                     <select
                         id='outputType'
                         value={outputType}
@@ -119,10 +117,13 @@ class _Controls extends React.Component<ControlsProps> {
                         )}
                     </select>
                 </p>
-                <label htmlFor='inputLanguageTextarea'>
-                    <FormattedMessage id='inputLanguagePlaceholder' />
-                </label>
+                <div className='mb-2'>
+                    <label htmlFor='inputLanguageTextarea'>
+                        <FormattedMessage id='inputLanguagePlaceholder' />
+                    </label>
+                </div>
                 <textarea
+                    className='d-block w-100'
                     id='inputLanguageTextarea'
                     onChange={this.handleInputTextChange}
                     value={inputText}

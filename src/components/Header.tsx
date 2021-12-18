@@ -23,9 +23,8 @@ class _Header extends React.Component<HeaderProps> {
 
         return (
             <header>
-                <label htmlFor='appLanguage'>
-                    <FormattedMessage id='appLanguageLbl' />
-                    :&nbsp;
+                <label htmlFor='appLanguage' className='me-2'>
+                    <FormattedMessage id='appLanguageLbl' />:
                 </label>
                 <select
                     id='appLanguage'
@@ -47,6 +46,7 @@ class _Header extends React.Component<HeaderProps> {
                 <p>
                     <FormattedMessage id='bgnPcgnHelpText' /> &nbsp;
                     <a
+                        className='text-white'
                         target='_blank'
                         href='https://en.wikipedia.org/wiki/BGN/PCGN_romanization'>
                         BGN/PCGN
