@@ -22,24 +22,26 @@ class _Header extends React.Component<HeaderProps> {
         const { appLanguage } = this.props;
 
         return (
-            <header>
-                <label htmlFor='appLanguage' className='me-2'>
-                    <FormattedMessage id='appLanguageLbl' />:
-                </label>
-                <select
-                    id='appLanguage'
-                    value={appLanguage}
-                    onChange={this.handleAppLanguageChange}>
-                    <FormattedMessage id='appLanguageOptEn'>
-                        {(message) => <option value='en'>{message}</option>}
-                    </FormattedMessage>
-                    <FormattedMessage id='appLanguageOptUk'>
-                        {(message) => <option value='uk'>{message}</option>}
-                    </FormattedMessage>
-                    <FormattedMessage id='appLanguageOptRu'>
-                        {(message) => <option value='ru'>{message}</option>}
-                    </FormattedMessage>
-                </select>
+            <header className='mb-4'>
+                <div className='mb-3'>
+                    <label htmlFor='appLanguage' className='me-2'>
+                        <FormattedMessage id='appLanguageLbl' />:
+                    </label>
+                    <select
+                        id='appLanguage'
+                        value={appLanguage}
+                        onChange={this.handleAppLanguageChange}>
+                        <FormattedMessage id='appLanguageOptEn'>
+                            {(message) => <option value='en'>{message}</option>}
+                        </FormattedMessage>
+                        <FormattedMessage id='appLanguageOptUk'>
+                            {(message) => <option value='uk'>{message}</option>}
+                        </FormattedMessage>
+                        <FormattedMessage id='appLanguageOptRu'>
+                            {(message) => <option value='ru'>{message}</option>}
+                        </FormattedMessage>
+                    </select>
+                </div>
                 <h2>
                     <FormattedMessage id='appTitle' />
                 </h2>
@@ -48,6 +50,7 @@ class _Header extends React.Component<HeaderProps> {
                     <a
                         className='text-white'
                         target='_blank'
+                        rel="noopener noreferrer"
                         href='https://en.wikipedia.org/wiki/BGN/PCGN_romanization'>
                         BGN/PCGN
                     </a>

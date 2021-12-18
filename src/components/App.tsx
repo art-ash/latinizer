@@ -1,7 +1,8 @@
 import React from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { IntlProvider } from 'react-intl';
 import { connect } from 'react-redux';
 import msgs from '../messages';
+import { Header } from './Header';
 import { Controls } from './Controls';
 import { changeAppLanguage } from '../actions';
 
@@ -37,46 +38,7 @@ class _App extends React.Component<AppProps> {
                 messages={messages}
                 locale={appLanguage}
                 defaultLocale='en'>
-                <header className='mb-4'>
-                    <div className='mb-3'>
-                        <label htmlFor='appLanguage'>
-                            <FormattedMessage id='appLanguageLbl' />
-                            :&nbsp;
-                        </label>
-                        <select
-                            id='appLanguage'
-                            value={appLanguage}
-                            onChange={this.handleAppLanguageChange}>
-                            <FormattedMessage id='appLanguageOptEn'>
-                                {(message) => (
-                                    <option value='en'>{message}</option>
-                                )}
-                            </FormattedMessage>
-                            <FormattedMessage id='appLanguageOptUk'>
-                                {(message) => (
-                                    <option value='uk'>{message}</option>
-                                )}
-                            </FormattedMessage>
-                            <FormattedMessage id='appLanguageOptRu'>
-                                {(message) => (
-                                    <option value='ru'>{message}</option>
-                                )}
-                            </FormattedMessage>
-                        </select>
-                    </div>
-                    <h1 className='h3'>
-                        <FormattedMessage id='appTitle' />
-                    </h1>
-                    <p>
-                        <FormattedMessage id='bgnPcgnHelpText' /> &nbsp;
-                        <a
-                            target='_blank'
-                            rel='noreferrer'
-                            href='https://en.wikipedia.org/wiki/BGN/PCGN_romanization'>
-                            BGN/PCGN
-                        </a>
-                    </p>
-                </header>
+                <Header />
                 <Controls />
                 <pre>{outputText}</pre>
             </IntlProvider>
