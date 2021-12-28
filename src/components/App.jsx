@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import messages from '../messages';
+import { Header } from './Header';
 import { Main } from './Main';
+import messages from '../messages';
 
 export const App = () => {
     const [appLanguage, setAppLanguage] = useState('en');
@@ -16,10 +17,13 @@ export const App = () => {
             messages={messages[appLanguage]}
             locale={appLanguage}
             defaultLocale='en'>
-            <Main
-                appLanguage={appLanguage}
-                handleAppLanguageChange={handleAppLanguageChange}
-            />
+            <>
+                <Header
+                    appLanguage={appLanguage}
+                    handleAppLanguageChange={handleAppLanguageChange}
+                />
+                <Main />
+            </>
         </IntlProvider>
     );
 };
