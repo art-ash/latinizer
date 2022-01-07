@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import transliterate from '../transliterate';
 import { isUkInput, isRuInput } from '../helper';
 
@@ -8,6 +8,7 @@ export const Main = () => {
     const [inputType, setInputType] = useState('uk');
     const [outputType, setOutputType] = useState('en');
     const [outputText, setOutputText] = useState('');
+    const intl = useIntl();
 
     useEffect(() => {
         setOutputText(transliterate(inputText, inputType, outputType));
@@ -71,16 +72,14 @@ export const Main = () => {
                         )}
                     </select>
                 </p>
-                <div className='mb-2'>
-                    <label htmlFor='inputLanguageTextarea'>
-                        <FormattedMessage id='inputLanguagePlaceholder' />
-                    </label>
-                </div>
                 <textarea
                     className='d-block w-100'
                     id='inputLanguageTextarea'
                     onChange={handleInputTextChange}
                     value={inputText}
+                    placeholder={intl.formatMessage({
+                        id: 'inputLanguagePlaceholder',
+                    })}
                 />
             </form>
             <pre>{outputText}</pre>
