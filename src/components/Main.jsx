@@ -63,7 +63,7 @@ export const Main = () => {
                                 </FormattedMessage>
                                 <FormattedMessage id='outputLanguageOptPl'>
                                     {(message) => (
-                                        <option value='pl' disabled>
+                                        <option value='pl'>
                                             {message}
                                         </option>
                                     )}

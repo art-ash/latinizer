@@ -1,47 +1,47 @@
-import { isCharsEqual, isConsonant } from "../helper";
+import { isConsonant } from "../helper";
 
 export default text => {
   let result = "";
 
   for (let i = 0; i < text.length; i++) {
     if (text[i] === "Ч") {
-      result += "Č";
+      result += "Cz";
       continue;
     }
     if (text[i] === "ч") {
-      result += "č";
+      result += "cz";
       continue;
     }
     if (text[i] === "В") {
-      result += "V";
+      result += "W";
       continue;
     }
     if (text[i] === "в") {
-      result += "v";
+      result += "w";
       continue;
     }
     if (text[i] === "Ш") {
-      result += "Š";
+      result += "Sz";
       continue;
     }
     if (text[i] === "ш") {
-      result += "š";
+      result += "sz";
       continue;
     }
     if (text[i] === "Щ") {
-      result += "Šč";
+      result += "Szcz";
       continue;
     }
     if (text[i] === "щ") {
-      result += "šč";
+      result += "szcz";
       continue;
     }
     if (text[i] === "Ж") {
-      result += "Ž";
+      result += "Ż";
       continue;
     }
     if (text[i] === "ж") {
-      result += "ž";
+      result += "ż";
       continue;
     }
     if (text[i] === "А") {
@@ -140,22 +140,12 @@ export default text => {
       result += "I";
       continue;
     }
-    if (text[i] === "і" && isCharsEqual(text[i + 1], "й")) {
-      result += "í";
-      continue;
-    }
     if (text[i] === "і") {
       result += "i";
       continue;
     }
     if (text[i] === "Й") {
       result += "J";
-      continue;
-    }
-    if (
-      text[i] === "й" &&
-      (isCharsEqual(text[i - 1], "и") || isCharsEqual(text[i - 1], "і"))
-    ) {
       continue;
     }
     if (text[i] === "й") {
@@ -244,10 +234,6 @@ export default text => {
     }
     if (text[i] === "И") {
       result += "Y";
-      continue;
-    }
-    if (text[i] === "и" && isCharsEqual(text[i + 1], "й")) {
-      result += "ý";
       continue;
     }
     if (text[i] === "и") {
