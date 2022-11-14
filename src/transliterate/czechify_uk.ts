@@ -1,6 +1,6 @@
 import { isCharsEqual, isConsonant } from "../helper";
 
-export default text => {
+export default (text: string): string => {
   let result = "";
 
   for (let i = 0; i < text.length; i++) {
