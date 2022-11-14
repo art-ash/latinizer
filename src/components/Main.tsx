@@ -34,14 +34,12 @@ export const Main: React.FC = () => {
                         id='inputType'
                         value={inputType}
                         onChange={handleInputTypeChange}>
-                        {/* <FormattedMessage id='inputLanguageOptUk'>
+                        <FormattedMessage id='inputLanguageOptUk'>
                             {(message) => <option value='uk'>{message}</option>}
                         </FormattedMessage>
                         <FormattedMessage id='inputLanguageOptRu'>
                             {(message) => <option value='ru'>{message}</option>}
-                        </FormattedMessage> */}
-                        <option value='uk'><FormattedMessage id='inputLanguageOptUk' /></option>
-                        <option value='ru'><FormattedMessage id='inputLanguageOptRu' /></option>
+                        </FormattedMessage>
                     </select>
                 </p>
                 <p className='mb-4'>
@@ -53,13 +51,12 @@ export const Main: React.FC = () => {
                         value={outputType}
                         onChange={handleOutputTypeChange}
                         disabled={inputType === 'ru'}>
-                        {/* <FormattedMessage id='outputLanguageOptEn'>
+                        <FormattedMessage id='outputLanguageOptEn'>
                             {(message) => <option value='en'>{message}</option>}
-                        </FormattedMessage> */}
-                        <option value='en'><FormattedMessage id='outputLanguageOptEn' /></option>
+                        </FormattedMessage>
                         {inputType === 'uk' && (
                             <>
-                                {/* <FormattedMessage id='outputLanguageOptCz'>
+                                <FormattedMessage id='outputLanguageOptCz'>
                                     {(message) => (
                                         <option value='cz'>{message}</option>
                                     )}
@@ -70,9 +67,7 @@ export const Main: React.FC = () => {
                                             {message}
                                         </option>
                                     )}
-                                </FormattedMessage> */}
-                                <option value='cz'><FormattedMessage id='outputLanguageOptCz' /></option>
-                                <option value='pl'><FormattedMessage id='outputLanguageOptPl' /></option>
+                                </FormattedMessage>
                             </>
                         )}
                     </select>

@@ -28,26 +28,15 @@ export const App: React.FC = () => {
               value={appLanguage}
               onChange={handleAppLanguageChange}
             >
-              <>
-                {/* <FormattedMessage id='appLanguageOptEn'>
-                        {(message) => <option value='en'>{message}</option>}
-                    </FormattedMessage>
-                    <FormattedMessage id='appLanguageOptUk'>
-                        {(message) => <option value='uk'>{message}</option>}
-                    </FormattedMessage>
-                    <FormattedMessage id='appLanguageOptRu'>
-                        {(message) => <option value='ru'>{message}</option>}
-                    </FormattedMessage> */}
-                <option value="en">
-                  <FormattedMessage id="appLanguageOptEn" />
-                </option>
-                <option value="uk">
-                  <FormattedMessage id="appLanguageOptUk" />
-                </option>
-                <option value="ru">
-                  <FormattedMessage id="appLanguageOptRu" />
-                </option>
-              </>
+                <FormattedMessage id='appLanguageOptEn'>
+                    {(message) => <option value='en'>{message}</option>}
+                </FormattedMessage>
+                <FormattedMessage id='appLanguageOptUk'>
+                    {(message) => <option value='uk'>{message}</option>}
+                </FormattedMessage>
+                <FormattedMessage id='appLanguageOptRu'>
+                    {(message) => <option value='ru'>{message}</option>}
+                </FormattedMessage>
             </select>
           </div>
           <h2>
