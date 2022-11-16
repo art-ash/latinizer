@@ -1,15 +1,8 @@
-export const isCharsEqual = (
-  nextChar: string,
-  char: string
-): boolean | null => {
-  // this check is unnecessary, because we already know that nextChar is a string (thanks to TypeScript)
-  // also it is not great to return null instaed of boolean
-  if (!nextChar || typeof nextChar != "string") return null;
-  return char.toLowerCase() == nextChar.toLowerCase();
-};
+export const isCharsEqual = (nextChar: string, char: string): boolean =>
+  char.toLowerCase() == nextChar.toLowerCase();
 
 // FYI: you dont have to write return type, because TypeScript can infer it
-export const isConsonant = (char: string): boolean | null =>
+export const isConsonant = (char: string): boolean =>
   isCharsEqual(char, "б") ||
   isCharsEqual(char, "в") ||
   isCharsEqual(char, "г") ||
@@ -35,11 +28,10 @@ export const isUkInput = (text: string) => {
   const textInLowercase = text.toLowerCase();
 
   return (
-    // .includes() is better than .indexOf() because it returns boolean
     textInLowercase.includes("ї") ||
-    textInLowercase.indexOf("ґ") !== -1 ||
-    textInLowercase.indexOf("є") !== -1 ||
-    textInLowercase.indexOf("і") !== -1
+    textInLowercase.includes("ґ") ||
+    textInLowercase.includes("є") ||
+    textInLowercase.includes("і")
   );
 };
 
@@ -47,9 +39,9 @@ export const isRuInput = (text: string): boolean => {
   const textInLowercase = text.toLowerCase();
 
   return (
-    textInLowercase.indexOf("ё") !== -1 ||
-    textInLowercase.indexOf("ы") !== -1 ||
-    textInLowercase.indexOf("ъ") !== -1 ||
-    textInLowercase.indexOf("э") !== -1
+    textInLowercase.includes("ё") ||
+    textInLowercase.includes("ы") ||
+    textInLowercase.includes("ъ") ||
+    textInLowercase.includes("э")
   );
 };

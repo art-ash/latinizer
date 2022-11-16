@@ -3,7 +3,7 @@ import polonifyUk from "./polonify_uk";
 import englifyUk from "./englify_uk";
 import englifyRu from "./englify_ru";
 
-export type InputLanguage = "uk" | "ru" | "en";
+export type InputLanguage = "uk" | "ru";
 export type OutputLanguage = "cz" | "pl" | "en";
 
 export default (

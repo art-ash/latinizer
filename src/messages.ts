@@ -13,9 +13,7 @@ const en = {
   outputLanguageOptCz: "Czechify",
   outputLanguageOptPl: "Polonify",
   inputLanguagePlaceholder: "Cyrillic text here...",
-  new: "New",
 };
-
 
 export type Language = "en" | "uk" | "ru";
 
@@ -36,30 +34,29 @@ const uk: Messages = {
   outputLanguageOptCz: "Чехіфікувати",
   outputLanguageOptPl: "Полонізувати",
   inputLanguagePlaceholder: "Текст кирилицею...",
-  new: "Новий",
-}
+};
+
+const ru: Messages = {
+  appLanguageLbl: "Язык",
+  appLanguageOptEn: "Английский",
+  appLanguageOptUk: "Украинский",
+  appLanguageOptRu: "Русский",
+  appTitle: "Конвертор Кириллицы в Латиницу",
+  bgnPcgnHelpText: 'Опция "Англифицировать" сконвертирует кириллицу в стандарт',
+  inputLanguageLbl: "Входящий Язык",
+  inputLanguageOptUk: "Украинский",
+  inputLanguageOptRu: "Русский",
+  outputLanguageLbl: "Выходящий Язык",
+  outputLanguageOptEn: "Англифицировать",
+  outputLanguageOptCz: "Чехифицировать",
+  outputLanguageOptPl: "Полонизировать",
+  inputLanguagePlaceholder: "Текст кириллицей...",
+};
 
 const messages: Record<Language, Messages> = {
   en,
   uk,
-  ru: {
-    appLanguageLbl: "Язык",
-    appLanguageOptEn: "Английский",
-    appLanguageOptUk: "Украинский",
-    appLanguageOptRu: "Русский",
-    appTitle: "Конвертор Кириллицы в Латиницу",
-    bgnPcgnHelpText:
-      'Опция "Англифицировать" сконвертирует кириллицу в стандарт',
-    inputLanguageLbl: "Входящий Язык",
-    inputLanguageOptUk: "Украинский",
-    inputLanguageOptRu: "Русский",
-    outputLanguageLbl: "Выходящий Язык",
-    outputLanguageOptEn: "Англифицировать",
-    outputLanguageOptCz: "Чехифицировать",
-    outputLanguageOptPl: "Полонизировать",
-    inputLanguagePlaceholder: "Текст кириллицей...",
-    new: "Новый",
-  },
+  ru,
 };
 
 export default messages;
