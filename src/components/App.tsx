@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { IntlProvider, FormattedMessage } from "react-intl";
 import { Main } from "./Main";
-import messages from "../messages";
+import messages, { Language } from "../messages";
 
 export const App: React.FC = () => {
-  const [appLanguage, setAppLanguage] = useState("en");
+  const [appLanguage, setAppLanguage] = useState<Language>("en");
 
-  const handleAppLanguageChange = (event: { target: { value: string } }) => {
-    const value = event.target.value;
+  const handleAppLanguageChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value as Language;
     setAppLanguage(value);
   };
 

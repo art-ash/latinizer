@@ -1,5 +1,15 @@
 import { isCharsEqual, isConsonant } from "../helper";
 
+// O(1) (constant time)
+const ukToCzMap = {
+  Ч: "Č",
+  ч: "č",
+  // function for special cases
+  є: (prev: string) => (isConsonant(prev) ? "ie" : "je"),
+};
+
+
+// kinda O(n) but really O(alphabet size) (linear time)
 export default (text: string): string => {
   let result = "";
 
