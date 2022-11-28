@@ -8,12 +8,14 @@ const ukToCzMap = {
   є: (prev: string) => (isConsonant(prev) ? "ie" : "je"),
 };
 
-
 // kinda O(n) but really O(alphabet size) (linear time)
 export default (text: string): string => {
   let result = "";
 
   for (let i = 0; i < text.length; i++) {
+    const prevChar = text[i - 1];
+    const nextChar = text[i + 1];
+
     if (text[i] === "Ч") {
       result += "Č";
       continue;
@@ -98,7 +100,7 @@ export default (text: string): string => {
       result += "Je";
       continue;
     }
-    if (text[i] === "є" && isConsonant(text[i - 1])) {
+    if (prevChar && text[i] === "є" && isConsonant(prevChar)) {
       result += "ie";
       continue;
     }
@@ -150,7 +152,7 @@ export default (text: string): string => {
       result += "I";
       continue;
     }
-    if (text[i] === "і" && isCharsEqual(text[i + 1], "й")) {
+    if (nextChar && text[i] === "і" && isCharsEqual(nextChar, "й")) {
       result += "í";
       continue;
     }
@@ -163,8 +165,9 @@ export default (text: string): string => {
       continue;
     }
     if (
+      prevChar &&
       text[i] === "й" &&
-      (isCharsEqual(text[i - 1], "и") || isCharsEqual(text[i - 1], "і"))
+      (isCharsEqual(prevChar, "и") || isCharsEqual(prevChar, "і"))
     ) {
       continue;
     }
@@ -256,7 +259,7 @@ export default (text: string): string => {
       result += "Y";
       continue;
     }
-    if (text[i] === "и" && isCharsEqual(text[i + 1], "й")) {
+    if (nextChar && text[i] === "и" && isCharsEqual(nextChar, "й")) {
       result += "ý";
       continue;
     }
@@ -276,7 +279,7 @@ export default (text: string): string => {
       result += "Ju";
       continue;
     }
-    if (text[i] === "ю" && isConsonant(text[i - 1])) {
+    if (prevChar && text[i] === "ю" && isConsonant(prevChar)) {
       result += "iu";
       continue;
     }
@@ -288,7 +291,7 @@ export default (text: string): string => {
       result += "Ja";
       continue;
     }
-    if (text[i] === "я" && isConsonant(text[i - 1])) {
+    if (prevChar && text[i] === "я" && isConsonant(prevChar)) {
       result += "ia";
       continue;
     }

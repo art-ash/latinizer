@@ -1,7 +1,6 @@
 export const isCharsEqual = (nextChar: string, char: string): boolean =>
-  char.toLowerCase() == nextChar.toLowerCase();
+  char.toLowerCase() === nextChar.toLowerCase();
 
-// FYI: you dont have to write return type, because TypeScript can infer it
 export const isConsonant = (char: string): boolean =>
   isCharsEqual(char, "б") ||
   isCharsEqual(char, "в") ||
