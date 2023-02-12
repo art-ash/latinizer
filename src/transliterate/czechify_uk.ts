@@ -1,314 +1,310 @@
 import { isCharsEqual, isConsonant } from "../helper";
 
-// O(1) (constant time)
-const ukToCzMap = {
-  Ч: "Č",
-  ч: "č",
-  // function for special cases
-  є: (prev: string) => (isConsonant(prev) ? "ie" : "je"),
-};
-
-// kinda O(n) but really O(alphabet size) (linear time)
 export default (text: string): string => {
   let result = "";
 
   for (let i = 0; i < text.length; i++) {
+    const currChar = text[i]
     const prevChar = text[i - 1];
     const nextChar = text[i + 1];
 
-    if (text[i] === "Ч") {
+    if (currChar === "Ч") {
       result += "Č";
       continue;
     }
-    if (text[i] === "ч") {
+    if (currChar === "ч") {
       result += "č";
       continue;
     }
-    if (text[i] === "В") {
+    if (currChar === "В") {
       result += "V";
       continue;
     }
-    if (text[i] === "в") {
+    if (currChar === "в") {
       result += "v";
       continue;
     }
-    if (text[i] === "Ш") {
+    if (currChar === "Ш") {
       result += "Š";
       continue;
     }
-    if (text[i] === "ш") {
+    if (currChar === "ш") {
       result += "š";
       continue;
     }
-    if (text[i] === "Щ") {
+    if (currChar === "Щ") {
       result += "Šč";
       continue;
     }
-    if (text[i] === "щ") {
+    if (currChar === "щ") {
       result += "šč";
       continue;
     }
-    if (text[i] === "Ж") {
+    if (currChar === "Ж") {
       result += "Ž";
       continue;
     }
-    if (text[i] === "ж") {
+    if (currChar === "ж") {
       result += "ž";
       continue;
     }
-    if (text[i] === "А") {
+    if (currChar === "А") {
       result += "A";
       continue;
     }
-    if (text[i] === "а") {
+    if (currChar === "а") {
       result += "a";
       continue;
     }
-    if (text[i] === "Б") {
+    if (currChar === "Б") {
       result += "B";
       continue;
     }
-    if (text[i] === "б") {
+    if (currChar === "б") {
       result += "b";
       continue;
     }
-    if (text[i] === "Ц") {
+    if (currChar === "Ц") {
       result += "C";
       continue;
     }
-    if (text[i] === "ц") {
+    if (currChar === "ц") {
       result += "c";
       continue;
     }
-    if (text[i] === "Х") {
+    if (currChar === "Х") {
       result += "Ch";
       continue;
     }
-    if (text[i] === "х") {
+    if (currChar === "х") {
       result += "ch";
       continue;
     }
-    if (text[i] === "Д") {
+    if (currChar === "Д") {
       result += "D";
       continue;
     }
-    if (text[i] === "д") {
+    if (currChar === "д") {
       result += "d";
       continue;
     }
-    if (text[i] === "Є") {
+    if (prevChar && isConsonant(prevChar) && currChar === "Є") {
+      result += "Ě";
+      continue;
+    }
+    if (currChar === "Є") {
       result += "Je";
       continue;
     }
-    if (prevChar && text[i] === "є" && isConsonant(prevChar)) {
-      result += "ie";
+    if (prevChar && isConsonant(prevChar) && currChar === "є") {
+      result += "ě";
       continue;
     }
-    if (text[i] === "є") {
+    if (currChar === "є") {
       result += "je";
       continue;
     }
-    if (text[i] === "Е") {
+    if (currChar === "Е") {
       result += "E";
       continue;
     }
-    if (text[i] === "е") {
+    if (currChar === "е") {
       result += "e";
       continue;
     }
-    if (text[i] === "Ї") {
+    if (currChar === "Ї") {
       result += "Ji";
       continue;
     }
-    if (text[i] === "ї") {
+    if (currChar === "ї") {
       result += "ji";
       continue;
     }
-    if (text[i] === "Ф") {
+    if (currChar === "Ф") {
       result += "F";
       continue;
     }
-    if (text[i] === "ф") {
+    if (currChar === "ф") {
       result += "f";
       continue;
     }
-    if (text[i] === "Ґ") {
+    if (currChar === "Ґ") {
       result += "G";
       continue;
     }
-    if (text[i] === "ґ") {
+    if (currChar === "ґ") {
       result += "g";
       continue;
     }
-    if (text[i] === "Г") {
+    if (currChar === "Г") {
       result += "H";
       continue;
     }
-    if (text[i] === "г") {
+    if (currChar === "г") {
       result += "h";
       continue;
     }
-    if (text[i] === "І") {
+    if (currChar === "І") {
       result += "I";
       continue;
     }
-    if (nextChar && text[i] === "і" && isCharsEqual(nextChar, "й")) {
+    if (nextChar && currChar === "і" && isCharsEqual(nextChar, "й")) {
       result += "í";
       continue;
     }
-    if (text[i] === "і") {
+    if (currChar === "і") {
       result += "i";
       continue;
     }
-    if (text[i] === "Й") {
+    if (currChar === "Й") {
       result += "J";
       continue;
     }
     if (
       prevChar &&
-      text[i] === "й" &&
+      currChar === "й" &&
       (isCharsEqual(prevChar, "и") || isCharsEqual(prevChar, "і"))
     ) {
       continue;
     }
-    if (text[i] === "й") {
+    if (currChar === "й") {
       result += "j";
       continue;
     }
-    if (text[i] === "К") {
+    if (currChar === "К") {
       result += "K";
       continue;
     }
-    if (text[i] === "к") {
+    if (currChar === "к") {
       result += "k";
       continue;
     }
-    if (text[i] === "Л") {
+    if (currChar === "Л") {
       result += "L";
       continue;
     }
-    if (text[i] === "л") {
+    if (currChar === "л") {
       result += "l";
       continue;
     }
-    if (text[i] === "М") {
+    if (currChar === "М") {
       result += "M";
       continue;
     }
-    if (text[i] === "м") {
+    if (currChar === "м") {
       result += "m";
       continue;
     }
-    if (text[i] === "Н") {
+    if (currChar === "Н") {
       result += "N";
       continue;
     }
-    if (text[i] === "н") {
+    if (currChar === "н") {
       result += "n";
       continue;
     }
-    if (text[i] === "О") {
+    if (currChar === "О") {
       result += "O";
       continue;
     }
-    if (text[i] === "о") {
+    if (currChar === "о") {
       result += "o";
       continue;
     }
-    if (text[i] === "П") {
+    if (currChar === "П") {
       result += "P";
       continue;
     }
-    if (text[i] === "п") {
+    if (currChar === "п") {
       result += "p";
       continue;
     }
-    if (text[i] === "Р") {
+    if (currChar === "Р") {
       result += "R";
       continue;
     }
-    if (text[i] === "р") {
+    if (currChar === "р") {
       result += "r";
       continue;
     }
-    if (text[i] === "С") {
+    if (currChar === "С") {
       result += "S";
       continue;
     }
-    if (text[i] === "с") {
+    if (currChar === "с") {
       result += "s";
       continue;
     }
-    if (text[i] === "Т") {
+    if (currChar === "Т") {
       result += "T";
       continue;
     }
-    if (text[i] === "т") {
+    if (currChar === "т") {
       result += "t";
       continue;
     }
-    if (text[i] === "У") {
+    if (currChar === "У") {
       result += "U";
       continue;
     }
-    if (text[i] === "у") {
+    if (currChar === "у") {
       result += "u";
       continue;
     }
-    if (text[i] === "И") {
+    if (currChar === "И") {
       result += "Y";
       continue;
     }
-    if (nextChar && text[i] === "и" && isCharsEqual(nextChar, "й")) {
+    if (nextChar && currChar === "и" && isCharsEqual(nextChar, "й")) {
       result += "ý";
       continue;
     }
-    if (text[i] === "и") {
+    if (currChar === "и") {
       result += "y";
       continue;
     }
-    if (text[i] === "З") {
+    if (currChar === "З") {
       result += "Z";
       continue;
     }
-    if (text[i] === "з") {
+    if (currChar === "з") {
       result += "z";
       continue;
     }
-    if (text[i] === "Ю") {
+    if (currChar === "Ю") {
       result += "Ju";
       continue;
     }
-    if (prevChar && text[i] === "ю" && isConsonant(prevChar)) {
+    if (prevChar && currChar === "ю" && isConsonant(prevChar)) {
       result += "iu";
       continue;
     }
-    if (text[i] === "ю") {
+    if (currChar === "ю") {
       result += "ju";
       continue;
     }
-    if (text[i] === "Я") {
+    if (currChar === "Я") {
       result += "Ja";
       continue;
     }
-    if (prevChar && text[i] === "я" && isConsonant(prevChar)) {
+    if (prevChar && currChar === "я" && isConsonant(prevChar)) {
       result += "ia";
       continue;
     }
-    if (text[i] === "я") {
+    if (currChar === "я") {
       result += "ja";
       continue;
     }
-    if (text[i] === "ь") {
+    if (currChar === "ь") {
       result += "'";
       continue;
     }
-    if (text[i] === "’" || text[i] === "'") {
+    if (currChar === "’" || currChar === "'") {
       result += "";
       continue;
     }
 
-    result += text[i];
+    result += currChar;
   }
 
   return result;
