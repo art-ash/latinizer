@@ -276,7 +276,7 @@ export default (text: string): string => {
       continue;
     }
     if (prevChar && currChar === "ю" && isConsonant(prevChar)) {
-      result += "iu";
+      result += "ǔ";
       continue;
     }
     if (currChar === "ю") {
