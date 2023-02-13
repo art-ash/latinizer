@@ -288,7 +288,7 @@ export default (text: string): string => {
       continue;
     }
     if (prevChar && currChar === "я" && isConsonant(prevChar)) {
-      result += "ia";
+      result += "ǎ";
       continue;
     }
     if (currChar === "я") {
